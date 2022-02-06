@@ -119,5 +119,10 @@ background: #A6D8E3;
   background: rgba(196, 196, 196, 0.66);
 }
 
+.new_reminder{
+  font-size: large;
+  margin: 25px;
+}
+
 
 

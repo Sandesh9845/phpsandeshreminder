@@ -1,3 +1,8 @@
+<?php
+include('process.php');
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,8 +18,8 @@
     <div class="loginlogout">
     <img src="./img/logo.PNG" alt="">
     <div class="tl" >
-    <a  class="br" href="">signup</a>
-    <a class="br" href="">login</a>
+    <a  class="br" href="../sandeshphp/signup.php">signup</a>
+    <a class="br" href="../sandeshphp/login.php">login</a>
 
     </div>
     
@@ -36,7 +41,11 @@
         <h1>Reminder</h1>
     <div class="R1">
              <div class="r1s"> 
-                 <div class="R11">Today</div>     
+                 <div class="R11">Today 
+                     <?php
+                        echo $num_row;
+                     ?>
+                 </div>     
                 <div class="R12">schedule</div>  
             </div>
              <div class="r1ss">
@@ -45,30 +54,49 @@
              </div>
                   
     </div>       
-            
-                
+            <button class="new_reminder">New Reminder</button>
+                <aside>
+            <form action="process.php" method="post">
+            <input type="textarea" placeholder="User Name" class="txt" name="Text">
+            <input type="date" placeholder="Password" class="txt" name="Date">
+            <input type="submit" value="Text Reminder" class="btn" name="btn-reminder-save">
+        </form>
+                </aside>
              </div>  
             <div>
                 <h1>Activities Today</h1>
             <div class="R2">
-                <div class="R21"></div>     
+                <div class="R21">
+                <?php while($row =mysqli_fetch_array($result)){
+                    echo"<tr>
+                    <td>".$row['Text']."</td>
+                    <td>".$row['Date']."</td>
+                   <td> <a href= 'process.php?dt=$row[Date]'>delete</td>
+                   </tr>";
+                }
+
+                  ?>
+                </div>     
                 <div class="R22"></div>      
              </div>  
             </div>
                     
 </div>
-                
-                    
-                
-                    
-                    
-                
-            
             </section>
 
+<script>
+    let btn= document.querySelector('button');
+    let aside= document.querySelector('aside');
 
-
-
+    btn.addEventListener('click',()=>{
+        if(aside.style.display==='none'){
+            aside.style.display="block";
+            
+        } else {
+            aside.style.display="none";
+        }
+    });
+</script>
 
 
 </body>

@@ -136,26 +136,21 @@ mysqli_close($con);
 
 <!-- fetch data of new reminder -->
 
-<!-- <?php
-//include('connection.php');
-//error_reporting(0);
-// write query for  reminder to count
+<?php
+include('connection.php');
+error_reporting(0);
+//  write query for  reminder to count
 
-//$sql= "SELECT COUNT(Text) as info FROM reminder ";
+$query= "SELECT COUNT('*') as count FROM reminder ";
 
-// make query & get result
-//$result=mysqli_query($con, $sql);
-//$values=mysqli_fetch_assoc($result);
-//$num_row=$values['total'];
-
-
-// // fetchg the result rows as an array
-// $reminder = mysqli_fetch_array($result);
-// // free result from mem,ory
-// mysqli_free_result($result);
-
-// close connectio
-//mysqli_close($con);
+//  make query & get result
+$query_result=mysqli_query($con, $query);
+while ($row = mysqli_fetch_assoc($query_result)) {
+  $output= $row['count'];
+}
 
 
-?> -->
+
+?>
+
+

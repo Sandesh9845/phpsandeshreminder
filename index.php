@@ -18,8 +18,8 @@ include('process.php');
     <div class="loginlogout">
         <img src="./img/logo.PNG" alt="">
         <div class="tl" >
-            <a   href="../sandeshphp/signup.php">signup</a>
-            <a  href="../sandeshphp/login.php">login</a>
+            <a  class="br" href="../sandeshphp/signup.php">signup</a>
+            <a  class="br" href="../sandeshphp/login.php">login</a>
         </div>
     
     </div>
@@ -49,7 +49,7 @@ include('process.php');
             
                 <aside>
             <form action="process.php" method="post">
-            <input type="textarea" placeholder="User Name" class="txt" name="Text">
+            <input type="message" placeholder="reminder" class="txt" name="Text">
             <input type="date" placeholder="Password" class="txt" name="Date">
             <input type="submit" value="Text Reminder" class="btn" name="btn-reminder-save">
         </form>
